@@ -10,6 +10,14 @@ const Home = () => {
         marginTop: "30vh",
         height: "30vh",
       }}>SELECT-4</h1>
+      <a
+        href="#keypad"
+        class="btn btn-primary btn-lg btn-block"
+        role="button"
+        aria-pressed="true"
+      >
+        Start Game
+      </a>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -21,14 +29,6 @@ const Home = () => {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </p>
-      <a
-        href="#keypad"
-        class="btn btn-primary btn-lg btn-block"
-        role="button"
-        aria-pressed="true"
-      >
-        Start Game
-      </a>
     </div>
   );
 };
