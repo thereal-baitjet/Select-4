@@ -2,16 +2,14 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div
-      style={{
+    <div>
+      <h1 style={{
         display: "flex",
-        justifyContent: "Right",
+        justifyContent: "Center",
         alignItems: "Right",
         marginTop: "30vh",
         height: "30vh",
-      }}
-    >
-      <h1>SELECT-4</h1>
+      }}>SELECT-4</h1>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
