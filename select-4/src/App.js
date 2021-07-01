@@ -3,6 +3,8 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import NavbarBet from "./components/Navbar";
 import Home from "./components/Home";
 import Keypad from "./components/Keypad";
+import Winner from "./components/Winner";
+import Wallet from "./components/Wallet";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "./App.css";
@@ -15,6 +17,8 @@ function App() {
       <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/keypad" component={Keypad} />
+          <Route exact path="/Wallet" component={Wallet} />
+          <Route exact path="/winner" component={Winner} />
       </Switch>
       </Router>
     </div>
