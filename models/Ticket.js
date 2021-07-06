@@ -9,23 +9,22 @@ Ticket.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
     },
     number: {
         type: DataTypes.STRING, // Keeping as string because we need strings to represent zero-leading tickets, like 0777
-        allowNull: false,
+        allowNull: false
     },
     date: {
         type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
+        allowNull: false
     },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-        model: 'user',
-        key: 'id',
-        },
+            model: 'user',
+            key: 'id'
+        }
     }
 },
 {
