@@ -12,6 +12,8 @@ const NavbarBet = () => {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#keypad">Keypad</Nav.Link>
             <Nav.Link href="#wallet">Wallet</Nav.Link>
+            <Nav.Link href="#drawing">Drawing</Nav.Link>
+            <Nav.Link href="#winner">Winner</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -3,14 +3,24 @@ import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
 const Wallet = () => {
   return (
-    <div>
+    <div><h1 style={{
+      display: "flex",
+      justifyContent: "Center",
+      alignItems: "Right",
+      marginTop: "20vh",
+      height: "5vh",
+      color: "white"
+    }}>These are your tickets if your any of your numbers match the drawing number for today you will win $1,000.00 dollars</h1>
+    <div style={{
+      display: "flex",
+      justifyContent: "Center",
+      alignItems: "Right",
+      marginTop: "5vh",
+      height: "30vh",
+    }}>
       <div class="row h-100 justify-content-center align-items-center">
         <Card
           style={{
-            marginTop: "5%",
-            alignItems: "center",
-            width: "60rem",
-            height: "50rem",
             backgroundImage:
               "url(https://scontent.fewr1-6.fna.fbcdn.net/v/t1.6435-0/p526x296/211686338_346049410255257_3369337830695011129_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=730e14&_nc_ohc=5JEc2mlmRYEAX9nSiLv&_nc_ht=scontent.fewr1-6.fna&tp=6&oh=996ac2ce8ebb319cb397ddf9dfb82833&oe=60E3A75D)",
           }}
@@ -55,6 +65,7 @@ const Wallet = () => {
           </Card.Body>
         </Card>
       </div>
+    </div>
     </div>
   );
 };
