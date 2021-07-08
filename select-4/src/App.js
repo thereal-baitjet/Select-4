@@ -5,8 +5,8 @@ import Home from "./components/Home";
 import Keypad from "./components/Keypad";
 import Winner from "./components/Winner";
 import Wallet from "./components/Wallet";
-import "bootstrap/dist/css/bootstrap.min.css";
-
+import Drawing from "./components/Drawing/Drawing";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 function App() {
@@ -46,7 +46,8 @@ function App() {
             }}
           />
           <Route exact path="/winner" component={Winner} />
-        </Switch>
+          <Route exact path="/drawing" component={Drawing} />
+      </Switch>
       </Router>
     </div>
   );
