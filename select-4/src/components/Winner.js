@@ -1,5 +1,6 @@
 import React from "react";
 import Swal from "sweetalert2";
+import { HashRouter as  Route } from "react-router-dom";
 
 const Winner = () => {
 
@@ -11,16 +12,18 @@ return (
         alignItems: "Right",
         marginTop: "30vh",
         height: "30vh",
+        color: 'white'
       }}>You Have Won</h1>
 
-      <p>You Have a Winning Ticket,  please go to your nearest participating, Western Union to Cash Out!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      <h2 style={{color: "white"}}>You Have a Winning Ticket,  please go to your nearest participating, Western Union to Cash Out!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           There are none yet but hey!!!! you won
-      </p>
+      </h2>
     </div>
   );
 };
 
-Swal.fire({
+if (<Route exact path="/winner"/>) {
+  Swal.fire({
     title: "Congratulations",
     text: "You Won 1,000.00 Dollars",
     imageUrl:
@@ -28,6 +31,7 @@ Swal.fire({
     imageWidth: 800,
     imageHeight: 400,
     imageAlt: "Jackpot",
-  });
+  })
+};
 
 export default Winner;

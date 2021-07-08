@@ -1,9 +1,24 @@
 import React from 'react';
 
 const Keypad = () => {
-    return (    
-        <div class="container py-4">
-    <div class="row">
+    return (  
+        <div><h1 style={{
+            display: "flex",
+            justifyContent: "Center",
+            alignItems: "Right",
+            marginTop: "20vh",
+            height: "5vh",
+            color:"white"
+          }}>Keypad</h1>
+          <h2 style={{color: "white"}}>Input a 4 digit number for one line, and hit submit! you can select upto 3 diffent lines of numbers</h2>
+        <div class="container" style={{
+            display: "flex",
+            justifyContent: "Center",
+            alignItems: "Right",
+            marginTop: "5vh",
+            height: "30vh",
+          }}>
+    <div class="row center">
         <div class="col-auto mx-auto bg-white rounded shadow">
 
             <div class="btn-group-vertical mx-4 my-5" role="group" aria-label="Basic example">
@@ -30,6 +45,7 @@ const Keypad = () => {
 
         </div>
     </div>
+</div>
 </div>
 
         );
