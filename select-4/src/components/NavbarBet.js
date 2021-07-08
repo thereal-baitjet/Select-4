@@ -3,7 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 
 const NavbarBet = () => {
   return (
-    <div>
+    <div className="pt-5">
       <Navbar fixed="top" bg="light" expand="lg">
         <Navbar.Brand href="#home">Select-4</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,6 +19,6 @@ const NavbarBet = () => {
       </Navbar>
     </div>
   );
-}
+};
 
 export default NavbarBet;
