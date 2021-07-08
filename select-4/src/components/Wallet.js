@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
-const Wallet = () => {
+const Wallet = (props) => {
   return (
     <div>
       <div class="row h-100 justify-content-center align-items-center">
@@ -31,27 +31,39 @@ const Wallet = () => {
                 fontSize: "40px",
               }}
             >
-              A. 3248
+              A. {props.numbersPicked[0]}
             </ListGroupItem>
             <ListGroupItem
               style={{ backgroundColor: "#EBCD46", fontSize: "40px" }}
             >
-              B. 6789
+              B. {props.numbersPicked[1]}
             </ListGroupItem>
             <ListGroupItem
-              style={{ borderBottom: "5px solid", backgroundColor: "#EBCD46", fontSize: "40px" }}
+              style={{
+                borderBottom: "5px solid",
+                backgroundColor: "#EBCD46",
+                fontSize: "40px",
+              }}
             >
-              C. 4856
+              C. {props.numbersPicked[2]}
             </ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link
-              style={{ fontFamily: "timesNewRoman", fontSize: "30px", textDecoration: 'none' }}
+              style={{
+                fontFamily: "timesNewRoman",
+                fontSize: "30px",
+                textDecoration: "none",
+              }}
               href="#keypad"
             >
               PLAY AGAIN
             </Card.Link>
-            <Card.Text style={{ borderTop: "5px solid", borderBottom: "5px solid" }}>GET RICH. GET HAPPY. TODAY.</Card.Text>
+            <Card.Text
+              style={{ borderTop: "5px solid", borderBottom: "5px solid" }}
+            >
+              GET RICH. GET HAPPY. TODAY.
+            </Card.Text>
           </Card.Body>
         </Card>
       </div>
