@@ -15,6 +15,8 @@ const Keypad = (props) => {
     }
   };
 
+  const shouldDisableKeypad = props.numbersPicked.length >= 3;
+
   return (
     <div className="container py-4">
       {clickedNumber}
@@ -28,6 +30,7 @@ const Keypad = (props) => {
           >
             <div className="btn-group btn-group-lg">
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary border-bottom-0 rounded-0"
@@ -35,6 +38,7 @@ const Keypad = (props) => {
                 1
               </button>
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary border-bottom-0"
@@ -42,6 +46,7 @@ const Keypad = (props) => {
                 2
               </button>
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary border-bottom-0 rounded-0"
@@ -51,6 +56,7 @@ const Keypad = (props) => {
             </div>
             <div className="btn-group btn-group-lg">
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary border-bottom-0 rounded-0"
@@ -58,6 +64,7 @@ const Keypad = (props) => {
                 4
               </button>
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary border-bottom-0"
@@ -65,6 +72,7 @@ const Keypad = (props) => {
                 5
               </button>
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary border-bottom-0 rounded-0"
@@ -74,6 +82,7 @@ const Keypad = (props) => {
             </div>
             <div className="btn-group btn-group-lg">
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary rounded-0"
@@ -81,6 +90,7 @@ const Keypad = (props) => {
                 7
               </button>
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary"
@@ -88,6 +98,7 @@ const Keypad = (props) => {
                 8
               </button>
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary rounded-0"
@@ -97,6 +108,7 @@ const Keypad = (props) => {
             </div>
             <div className="btn-group btn-group-lg">
               <button
+                disabled={shouldDisableKeypad}
                 type="button"
                 onClick={clickButton}
                 className="btn btn-outline-secondary"
