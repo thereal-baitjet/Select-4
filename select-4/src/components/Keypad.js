@@ -16,6 +16,13 @@ const Keypad = (props) => {
   };
 
   return (
+    <>
+    <div className="body" style={{
+    backgroundImage: 'url("Keypadbackground.jpg")', 
+    backgroundRepeat: 'no-repeat', 
+    backgroundPosition: 'center', 
+    backgroundSize: '1500px 1500px'}}>
+        </div>
     <div className="container py-4">
       {clickedNumber}
       <br></br>
@@ -108,7 +115,9 @@ const Keypad = (props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
+
 
 export default Keypad;
