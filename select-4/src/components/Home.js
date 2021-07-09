@@ -1,16 +1,10 @@
 import React from "react";
+import Header3 from "../images/Header3.png";
 
 const Home = () => {
   return (
     <div>
-      <h1 style={{
-        display: "flex",
-        justifyContent: "Center",
-        alignItems: "Right",
-        marginTop: "30vh",
-        height: "30vh",
-        color: 'white'
-      }}>SELECT-4</h1>
+      <img src={Header3} alt="Logo"/>;
       <a
         href="#keypad"
         class="btn btn-warning btn-lg btn-block"
