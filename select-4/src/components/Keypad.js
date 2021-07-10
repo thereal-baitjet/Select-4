@@ -7,7 +7,7 @@ const Keypad = (props) => {
     console.log(event.target.textContent);
     let number = event.target.textContent;
     let newNumber = clickedNumber + number;
-    if (newNumber.length == 4) {
+    if (newNumber.length === 4) {
       props.pickNumber(newNumber);
       setClickedNumber("");
     } else {
