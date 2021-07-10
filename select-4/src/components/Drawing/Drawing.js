@@ -5,6 +5,8 @@ import "./Style.css";
 
 const Drawing = () => {
   return (
+    <div>
+      <h1 style={{marginTop: '20px',  color: 'white'}}>DRAWING, if your numbers match these you are the $1000.00 Winner</h1>
     <div class="wrap">
   <section class="stage">
         <figure class="ball">
@@ -26,6 +28,7 @@ const Drawing = () => {
           <span class="number" data-number="5">&nbsp;</span>
         </figure>
   </section>
+</div>
 </div>
   );
 };
