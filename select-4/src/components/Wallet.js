@@ -15,7 +15,7 @@ const Wallet = (props) => {
       display: "flex",
       justifyContent: "Center",
       alignItems: "Right",
-      marginTop: "10vh",
+      marginTop: "20vh",
       height: "30vh",
     }}>
       <div class="row h-100 justify-content-center align-items-center">
