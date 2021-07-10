@@ -1,12 +1,12 @@
 import React from "react";
-import Header3 from "../images/Header3.png";
-
+import Header from "./images/Header3";
+import homepagebackground from "select-4/src/images/homepagebackground.png"
 
 const Home = () => {
   return (
     <>
     <div className="bg-image" style={{
-      backgroundImage: 'url(../homepagebackground.png)', 
+     backgroundImage:`url(${homepagebackground})`, 
       filter: 'blur(8px)', 
       WebkitFilter: 'blur(8px)', 
       height: '100%', 
@@ -25,10 +25,10 @@ const Home = () => {
       width: '80%', 
       padding: '20px', 
       textAlign: 'center'}}>
-    <img src="select-4/src/Header.png" alt="Header" width={1050} height={300} />
+  <img src={Header} alt="Header" width={1050} height={300} />
   </div>
   <div className="bg-image" style={{
-      backgroundImage: 'url(homepagebackground.png)', 
+       backgroundImage:`url(${homepagebackground})`, 
       filter: 'blur(8px)', 
       WebkitFilter: 'blur(8px)', 
       height: '100%', 
@@ -50,7 +50,9 @@ const Home = () => {
     <div className="container" style={{
         padding: '2px 16px'}}>
       <h4><b>Why play Select-4?</b></h4>
-      <p style={{color: "white"}}> Lorem Ipsum is simply dummy text of the printing and typesetting
+      <p style={{
+        color: "white",
+        fontStyle: "italic"}}> Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book. It has survived not only five
