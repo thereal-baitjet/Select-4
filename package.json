@@ -2,20 +2,29 @@
   "name": "project3",
   "version": "1.0.0",
   "description": "",
-  "main": "connection.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "seed": "node seeds/index.js"
+    "seed": "node seeds/index.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'select-4/*'\" \"npm run select-4\"",
+    "select-4": "cd select-4 && npm run start",
+    "install": "cd select-4 && npm install",
+    "build": "cd select-4 && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
+    "concurrently": "^6.2.0",
     "connect-session-sequelize": "^7.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.12",
     "sequelize": "^6.6.4"
   }
 }
