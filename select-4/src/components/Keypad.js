@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./keypad.css"
 
 const Keypad = (props) => {
   const [clickedNumber, setClickedNumber] = useState("");
@@ -16,13 +17,10 @@ const Keypad = (props) => {
   };
 
   return (
-    <>
-    <div className="body" style={{
-    backgroundImage: 'url("Keypadbackground.jpg")', 
-    backgroundRepeat: 'no-repeat', 
-    backgroundPosition: 'center', 
-    backgroundSize: '1500px 1500px'}}>
-        </div>
+    <div className="backGround">
+      <h1 style={{color:"red",
+                  fontStyle:"revert", }}>
+   Choose your 4 numbers</h1>
     <div className="container py-4">
       {clickedNumber}
       <br></br>
@@ -109,14 +107,15 @@ const Keypad = (props) => {
                 className="btn btn-outline-secondary"
               >
                 0
-              </button>
+              </button> 
             </div>
           </div>
         </div>
       </div>
+      </div>
     </div>
-    </>
-  );
+    
+      );
 };
 
 
