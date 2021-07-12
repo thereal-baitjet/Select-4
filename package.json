@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mysql2": "^2.2.5",
+    "react": "^17.0.2",
     "nodemon": "^2.0.12",
     "sequelize": "^6.6.4"
   }
