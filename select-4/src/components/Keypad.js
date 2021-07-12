@@ -22,6 +22,13 @@ const Keypad = (props) => {
                   fontStyle:"revert", }}>
    Choose your 4 numbers</h1>
     <div className="container py-4">
+    <div className="body" style={{
+    backgroundImage: 'url("Keypadbackground.jpg")', 
+    backgroundRepeat: 'no-repeat', 
+    backgroundPosition: 'center', 
+    backgroundSize: '1500px 1500px'}}>
+    <div className="container py-4" style={{color: 'white', fontSize: '100px'}}>
+      <h1>Input four numbers per line, max 3 lines per game for each drawing, refer to wallet page for your selected ticket</h1>
       {clickedNumber}
       <br></br>
       <div className="row">

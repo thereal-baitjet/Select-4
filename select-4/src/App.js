@@ -6,6 +6,7 @@ import Keypad from "./components/Keypad";
 import Winner from "./components/Winner";
 import Wallet from "./components/Wallet";
 import Drawing from "./components/Drawing/Drawing";
+import Login from "./components/Login"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
@@ -29,6 +30,7 @@ function App() {
       <Router>
         <NavbarBet />
         <Switch>
+        <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route
             exact
@@ -47,6 +49,7 @@ function App() {
             }}
           />
           <Route exact path="/winner" component={Winner} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/drawing" component={Drawing} />
       </Switch>
       </Router>

@@ -1,10 +1,11 @@
 import React from "react";
-
+import Header3 from "../images/Header3.png";
 
 const Home = () => {
   return (
     <div>
-    <a
+      <img src={Header3} alt="Logo"/>;
+      <a
         href="#keypad"
         class="btn btn-warning btn-lg btn-block"
         role="button"

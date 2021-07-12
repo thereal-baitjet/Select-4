@@ -1,29 +1,35 @@
 import React from "react";
+import "./Style.css";
 
 
 
 const Drawing = () => {
   return (
-    <div style={{
-        display: "flex",
-        justifyContent: "Center",
-        alignItems: "Right",
-        marginTop: "30vh",
-        height: "30vh",
-      }}>
-                <div class="col-md-4 col-xl-3">
-                <h2 style={{color: "white"}}>NEVER MISS A DRAW</h2>
-        <h3 style={{color: "white"}}>Easy way to buy tickets and win $1,000.00+ from anywhere, anytime</h3>
-            <div class="card bg-c-green order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">The Big Drawing</h6>
-                    <h2 class="text-center"><i class="fa fa-rocket f-center"></i><span>486</span></h2>
-                    <p class="m-b-0">I wish you your dreams to come true, and the best of luck!</p>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+    <div>
+      <h1 style={{marginTop: '20px',  color: 'white'}}>DRAWING, if your numbers match these you are the $1000.00 Winner</h1>
+    <div class="wrap">
+  <section class="stage">
+        <figure class="ball">
+          <span class="number" data-number="8">&nbsp;</span>
+        </figure>
+  </section>
+  <section class="stage">
+        <figure class="ball">
+          <span class="number" data-number="2">&nbsp;</span>
+        </figure>
+  </section>
+  <section class="stage">
+        <figure class="ball">
+          <span class="number" data-number="4">&nbsp;</span>
+        </figure>
+  </section>
+  <section class="stage">
+        <figure class="ball">
+          <span class="number" data-number="5">&nbsp;</span>
+        </figure>
+  </section>
+</div>
+</div>
   );
 };
 
