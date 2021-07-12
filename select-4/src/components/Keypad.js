@@ -7,7 +7,7 @@ const Keypad = (props) => {
     console.log(event.target.textContent);
     let number = event.target.textContent;
     let newNumber = clickedNumber + number;
-    if (newNumber.length == 4) {
+    if (newNumber.length === 4) {
       props.pickNumber(newNumber);
       setClickedNumber("");
     } else {
@@ -16,6 +16,13 @@ const Keypad = (props) => {
   };
 
   return (
+    <>
+    <div className="body" style={{
+    backgroundImage: 'url("Keypadbackground.jpg")', 
+    backgroundRepeat: 'no-repeat', 
+    backgroundPosition: 'center', 
+    backgroundSize: '1500px 1500px'}}>
+        </div>
     <div className="container py-4">
       {clickedNumber}
       <br></br>
@@ -108,7 +115,9 @@ const Keypad = (props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
+
 
 export default Keypad;

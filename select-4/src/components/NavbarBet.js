@@ -14,6 +14,7 @@ const NavbarBet = () => {
             <Nav.Link href="#wallet">Wallet</Nav.Link>
             <Nav.Link href="#drawing">Drawing</Nav.Link>
             <Nav.Link href="#winner">Winner</Nav.Link>
+            <Nav.Link href="#login">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

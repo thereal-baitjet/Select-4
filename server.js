@@ -1,5 +1,5 @@
 const express = require('express');
-// const session = require('express-session');
+const session = require('express-session');
 const routes = require('./controllers');
 
 const sequelize = require('./config/connection');
@@ -8,16 +8,16 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Not currently used. Could be used for sessions / authentication.
-// const sess = {
-//     secret: 'Super secret secret',
-//     cookie: {},
-//     resave: false,
-//     saveUninitialized: true,
-//     store: new SequelizeStore({
-//         db: sequelize
-//     })
-// };
+// Commented out for now. Might be used for sessions / authentication
+const sess = {
+    secret: 'Super secret secret',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
 
 // app.use(session(sess));
 
