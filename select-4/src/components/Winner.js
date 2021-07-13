@@ -1,6 +1,6 @@
 import React from "react";
-// import Swal from "sweetalert2";
-// import { HashRouter as  Route } from "react-router-dom";
+import Swal from "sweetalert2";
+import { HashRouter as  Route } from "react-router-dom";
 
 const Winner = () => {
 
