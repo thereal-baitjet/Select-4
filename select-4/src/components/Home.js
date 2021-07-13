@@ -4,7 +4,7 @@ import Header3 from "../images/Header3.png";
 const Home = () => {
   return (
     <div>
-      <img src={Header3} alt="Logo"/>;
+      <img src={Header3} style={{ maxWidth: '100%', height: 'auto' }}alt="Logo"/>;
       <a
         href="#keypad"
         class="btn btn-warning btn-lg btn-block"
