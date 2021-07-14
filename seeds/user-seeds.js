@@ -4,33 +4,27 @@ const { User } = require('../models');
 // Create an array of objects representing user properties
 const userData = [
   {
-    email: 'demo@rutgers.edu',
-    name: 'demo',
+    username: 'demo',
     password: 'password'
   },
   {
-    email: 'email@email.com',
-    name: 'amazonash',
+    username: 'amazonash',
     password: '12345678'
   },
   {
-    email: 'email@email.com',
-    name: 'christineoz',
+    username: 'christineoz',
     password: '12345678'
   },
   {
-    email: 'email@email.com',
-    name: 'John-Mancini',
+    username: 'John-Mancini',
     password: '12345678'
   },
   {
-    email: 'email@email.com',
-    name: 'kvaden19',
+    username: 'kvaden19',
     password: '12345678'
   },
   {
-    email: 'baitjet@gmail.com',
-    name: 'thereal-baitjet',
+    username: 'thereal-baitjet',
     password: '12345678'
   }
 ];

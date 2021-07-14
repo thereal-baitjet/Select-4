@@ -1,5 +1,5 @@
 import React from "react";
-import Header3 from "./Header3.png";
+import Header3 from "../images/Header3.png";
 
 const Home = () => {
   return (
