@@ -18,9 +18,9 @@ const Wallet = (props) => {
       marginTop: "10vh",
       height: "30vh",
     }}>
-      <div class="row h-100 justify-content-center align-items-center">
+      <div style={{ boxShadow: "1px 3px 1px #9E9E9E" }} class="row h-100 justify-content-center align-items-center">
         <Card
-          style={{
+          style={{ boxShadow: "10px 30px 10px #9E9E9E",
             backgroundImage:
               "url(https://i.ibb.co/mc5Vs1B/ticketbackground.jpg)",
           }}
