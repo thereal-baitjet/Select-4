@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "animate.css": "^4.1.1",
     "animate.css-react": "^1.1.0",
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "express": "^4.17.1",
     "node-schedule": "^2.0.0",
