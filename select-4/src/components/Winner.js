@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import { HashRouter as  Route } from "react-router-dom";
+import axios from "axios";
 
 const Winner = () => {
 
@@ -18,6 +19,13 @@ const Winner = () => {
       })
   
   }
+
+
+  const getUserStatus = () => {
+    axios.get("/api/user/userStatus")
+  }
+
+  getUserStatus()
 
 return (
     <div>
