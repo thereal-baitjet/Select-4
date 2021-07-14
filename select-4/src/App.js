@@ -9,7 +9,7 @@ import Drawing from "./components/Drawing/Drawing";
 import Login from "./components/Login"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-
+import Sorry from "./components/Sorry";
 
 function App() {
   const [numbersPicked, setNumbersPicked] = useState([]);
@@ -51,6 +51,7 @@ function App() {
           <Route exact path="/winner" component={Winner} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/drawing" component={Drawing} />
+          <Route exact path="/sorry" component={Sorry} />
       </Switch>
       </Router>
     </div>
