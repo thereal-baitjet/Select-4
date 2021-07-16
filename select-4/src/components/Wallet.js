@@ -1,9 +1,10 @@
 import React from "react";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import "./wallet.css"
 
 const Wallet = (props) => {
   return (
-    <div>
+    <div className="bkGround">
       <h1
         style={{
           display: "flex",
