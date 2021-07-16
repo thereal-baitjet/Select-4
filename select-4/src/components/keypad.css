@@ -2,7 +2,8 @@
 	background-image: url('./Keypadbackground.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 1450px 2500px;
+  background-size: 1450px 1500px;
+  
   }
 
   .btn {
@@ -16,3 +17,4 @@
       color:white; 
       size: large;
   }
+  
