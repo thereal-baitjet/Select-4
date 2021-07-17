@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from '../utils/API.js';
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import TicketContext from '../utils/TicketContext';
+import "./wallet.css"
 
 class Wallet extends Component {
 
@@ -29,7 +30,7 @@ class Wallet extends Component {
   render() {
   return (
     <TicketContext.Provider value={this.state}>
-    <div>
+    <div className="bkGround">
       <h1
         style={{
           display: "flex",
