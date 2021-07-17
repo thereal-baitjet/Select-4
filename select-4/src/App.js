@@ -7,9 +7,9 @@ import Winner from "./components/Winner";
 import Wallet from "./components/Wallet";
 import Drawing from "./components/Drawing/Drawing";
 import Login from "./components/Login"
+import Sorry from "./components/Sorry";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import Sorry from "./components/Sorry";
 
 function App() {
   const [numbersPicked, setNumbersPicked] = useState([]);
