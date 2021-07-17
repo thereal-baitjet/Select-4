@@ -15,8 +15,7 @@ router.post('/', async (req, res) => {
 // Route: GET /api/tickets/
 // Allows user to view tickets in their wallet
 // TODO: Connect to front-end Wallet component
-// TODO: Need to consider logged-in user once Auth is set up
-// TODO: Should this be designed to only pull tix for the current date?
+// TODO: Add WHERE clause: logged-in user and current date
 router.get('/', async (req, res) => {
     try {
         const ticketData = await Ticket.findAll();
