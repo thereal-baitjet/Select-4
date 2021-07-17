@@ -42,19 +42,18 @@ const Keypad = (props) => {
       <h1 style={{color:'dark gray',
               fontSize: '30px' }}>Choose your 4 numbers</h1>
       <div className="container py-4">
-        <div className="body">
-            <div className="container py-4" style={{color: 'white', fontSize: '100px'}}>
-            <h1 style={{
-              color:'black',
-              fontSize: '30px', 
-              fontStyle: 'initial'
-            }}>Input four numbers per line, max 3 lines per game for each drawing, refer to wallet page for your selected ticket</h1>
-
+        <div className="body" style={{
+          backgroundImage: 'url("Keypadbackground.jpg")', 
+          backgroundRepeat: 'no-repeat', 
+          backgroundPosition: 'center', 
+          backgroundSize: '1500px 1500px'}}>
+            <div className="container py-4" style={{color: 'red', fontSize: '100px'}}>
+            <h1>Input four numbers per line, max 3 lines per game for each drawing, refer to wallet page for your selected ticket</h1>
             {/* Here is where typed numbers appear and get sent to database */}
             <form onSubmit={ handleSubmit } style={{
               height:'25px',
             }}>
-              <input type='text' name='ticket' value={ clickedNumber }/>
+              <input style={{ backgroundColor: '#54626F', borderWidth: '5px', borderStyle: 'double', borderColor: 'red', width: '288px', textAlign: 'center' }}type='text' name='ticket' value={ clickedNumber }/>
             </form>
             <br></br>
               <div className="row">

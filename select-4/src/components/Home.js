@@ -9,7 +9,6 @@ const Home = () => {
         style={{ maxWidth: "100%", height: "auto" }}
         alt="Logo"
       />
-      ;
       <a
         href="#keypad"
         className="btn btn-warning btn-lg btn-block"
