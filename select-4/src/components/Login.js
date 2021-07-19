@@ -1,75 +1,61 @@
 import React, { useState } from "react";
 // import Header3 from "../images/Header3.png";
 import axios from "axios";
+import './login.css';
 
 const Login = () => {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setNewUsername] = useState('');
+  const [password, setNewPassword] = useState('');
 
-  const [usernameLogin, setLoginUsername] = useState();
-  const [passwordLogin, setLoginPassword] = useState();
+  const [usernameLogin, setLoginUsername] = useState('');
+  const [passwordLogin, setLoginPassword] = useState('');
 
-  const handleSubmit = async (e) => {
+  const Signup = async (e) => {
     e.preventDefault();
-    console.log("username is " + username);
-    console.log("password is " + password);
     if (username && password) {
       // Send a POST request to the API endpoint
-      const response = await axios.post(
-        "/api/user",
-
-        { username, password }
-      );
-      if (response.ok) {
-        // If successful, redirect the browser to the profile page
-        //document.location.replace('/profile');
+      const response = await axios.post("/api/user", { 
+        username, password
+      });
+      if (response.status == 200) {
+        // If successful, redirect the browser to the Wallet page
+        document.location.replace('/#/wallet');
       } else {
-        alert(response.statusText);
+        alert(response.statusText); // TODO: Make this more user-friendly
       }
     }
   };
-  const login = async (e) => {
+
+  const Login = async (e) => {
     e.preventDefault();
-    // if (usernameLogin && passwordLogin) {
-
-    const response = await axios.post(
-      "/api/user",
-
-      { username: usernameLogin, password: passwordLogin }
-    );
-    if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      //document.location.replace('/profile');
-    } else {
-      alert(response.statusText);
+    if (username && password) {
+      // Send a POST request to the API endpoint
+      const response = await axios.post("/api/user/login", { 
+        username, password
+      });
+      if (response.status == 200) {
+        // If successful, redirect the browser to the Wallet page
+        document.location.replace('/#/wallet');
+      } else {
+        alert(response.statusText); // TODO: Make this more user-friendly
+      }
     }
-
-    //   // Send a POST request to the API endpoint
-    //   const response = await fetch('/api/user/login', {
-    //     method: 'POST',
-    //     body: JSON.stringify(),
-    //     headers: { 'Content-Type': 'application/json' },
-    //   });
-
-    //   if (response.ok) {
-    //     // If successful, redirect the browser to the profile page
-    //     console.log("login worked")
-    //   } else {
-    //   }
-    // }
   };
+
   return (
     <div>
       <form className="form login-form">
         <div className="form-group col-md-3 mx-auto">
         <h2 style={{ color: "white" }}>Login</h2>
-          <label style={{ color: "white" }}>email:</label>
+          <label style={{ color: "white" }}>username:</label>
           <input
             className="form-control"
             type="text"
             placeholder="Username"
             name="usernameLogin"
-            onChange={(e) => setLoginUsername(e.target.value)}
+            onChange={(e) => {
+              setLoginUsername(e.target.value)
+            }}
           />
         </div>
         <div className="form-group col-md-3 mx-auto">
@@ -84,10 +70,8 @@ const Login = () => {
         </div>
         <div className="form-group col-md-3 mx-auto">
           <button
-            className="btn btn-primary"
-            onClick={(e) => {
-              login(e);
-            }}
+            className="btn btn-success"
+            onClick={Login}
             type="submit"
           >
             login
@@ -99,18 +83,14 @@ const Login = () => {
         <h2 style={{ color: "white" }}>Signup</h2>
         <form className="form signup-form">
           <div className="form-group">
-            <label style={{ color: "white" }}>name:</label>
+            <label style={{ color: "white" }}>username:</label>
             <input
               className="form-control"
               type="text"
               placeholder="Username"
               name="username"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setNewUsername(e.target.value)}
             />
-          </div>
-          <div className="form-group">
-            <label style={{ color: "white" }}>email:</label>
-            <input className="form-input" type="text" id="email-signup" />
           </div>
           <div className="form-group">
             <label style={{ color: "white" }}>password:</label>
@@ -119,14 +99,14 @@ const Login = () => {
               type="password"
               placeholder="Password"
               name="password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setNewPassword(e.target.value)}
             />
           </div>
           <div className="form-group">
             <button
               className="btn btn-primary"
               onClick={(e) => {
-                handleSubmit(e);
+                Signup(e);
               }}
               type="submit"
             >

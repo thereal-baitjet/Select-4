@@ -1,15 +1,14 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-router.post('/', async (req, res) => {
 
+// Register a new User
+// Route: POST /api/user
+router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
       username: req.body.username,
       password: req.body.password
     });
-
-    console.log("userDATa")
-    console.log(userData)
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -19,13 +18,12 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
-router.post('/login', async (req, res) => {
 
-  console.log("here!")
-  console.log(req.body)
-  try {
+// Log in a user
+// Route: POST /api/user/login
+router.post('/login', async (req, res) => {
+ try {
     const userData = await User.findOne({ where: { username: req.body.username } });
-    console.log(userData)
     if (!userData) {
       res
         .status(400)
@@ -33,6 +31,7 @@ router.post('/login', async (req, res) => {
       return;
     }
     const validPassword = await userData.checkPassword(req.body.password);
+    console.log('Valid Password', validPassword);
     if (!validPassword) {
       res
         .status(400)
@@ -42,17 +41,22 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.status(200).json(userData);
     });
+    res.json({ user: userData, message: 'You are now logged in!' });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-
+// Get user status (?)
+// Route: GET /api/user/userStatus
 router.get("/userStatus",(req, res) => {
   console.log(req.session.logged_in)
 })
+
+// Logout user
+// Route: POST /api/user/logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -62,4 +66,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
 module.exports = router;

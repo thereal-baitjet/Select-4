@@ -1,37 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Style.css";
 import Header3 from "../../images/Header3.png";
 // const schedule = require('node-schedule');
 
-const Drawing = () => {
-  function drawWinner() {
+let winningTicket = drawWinner();
+let displayTicket = winningTicket.split('');
+
+// Randomly draw the winning number
+function drawWinner() {
     let winningString;
     let winningNumber = Math.floor(Math.random() * 10000);
 
     // Make sure any leading zeros show up in the winning number
     if (winningNumber === 0) {
-      winningString = '0000';
+        winningString = '0000';
     } else if (winningNumber < 10) {
-      winningString = '000' + String(winningNumber);
+        winningString = '000' + String(winningNumber);
     } else if (winningNumber < 100) {
-      winningString = '00' + String(winningNumber);
+        winningString = '00' + String(winningNumber);
     } else if (winningNumber < 1000) {
-      winningString = '0' + String(winningNumber);
+        winningString = '0' + String(winningNumber);
     } else {
-      winningString = String(winningNumber);
+        winningString = String(winningNumber);
     }
 
     return winningString;
-  }
+}
 
-  let winningTicket = drawWinner();
-  let splitWinningTicket = winningTicket.split('');
+// Brute force method - just refresh the page every 10 seconds
+setTimeout(
+  function() { window.location.reload() },
+  10000
+);
 
-  // // Schedule function to run every night at 7PM
-  // const job = schedule.scheduleJob('0 19 * * *', drawWinner());
+// Node-schedule method - works but doesn't re-render the component
+// const test = schedule.scheduleJob('*/10 * * * * *', function() {
+//     // Draw winning number
+//     winningTicket = drawWinner();
+//     console.log(winningTicket);
+//     // Parse the winning number so the component animation can display it
+//     displayWinningTicket = winningTicket.split('');
+// });
 
-  // // For testing, schedule function to run every 10 seconds
-  // const test_job = schedule.scheduleJob('*/10 * * * * *', drawWinner());
+const Drawing = () => {
 
   return (
     <div>
@@ -42,33 +53,32 @@ const Drawing = () => {
       />
       <h1 style={{ marginTop: "0px", color: "white" }}>
         Here goes the DAILY DRAWING...
-        If your numbers match these you take home $1000!
       </h1>
       <div className="wrap">
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number={splitWinningTicket[0]}>
+            <span className="number" data-number={displayTicket[0]}>
               &nbsp;
             </span>
           </figure>
         </section>
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number={splitWinningTicket[1]}>
+            <span className="number" data-number={displayTicket[1]}>
               &nbsp;
             </span>
           </figure>
         </section>
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number={splitWinningTicket[2]}>
+            <span className="number" data-number={displayTicket[2]}>
               &nbsp;
             </span>
           </figure>
         </section>
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number={splitWinningTicket[3]}>
+            <span className="number" data-number={displayTicket[3]}>
               &nbsp;
             </span>
           </figure>

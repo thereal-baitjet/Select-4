@@ -1,11 +1,16 @@
 const router = require('express').Router();
 const { Ticket } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Route: POST /api/tickets/
 // Allows user to create a new ticket
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
-        const ticketData = await Ticket.create(req.body);
+        const ticketData = await Ticket.create({
+            ...req.body,
+            date: new Date(),
+            user_id: req.session.user_id
+        });
         res.status(200).json(ticketData);
     } catch (err) {
         res.status(400).json(err);

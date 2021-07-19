@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 const NavbarBet = () => {
   return (
