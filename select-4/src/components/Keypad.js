@@ -28,9 +28,7 @@ const Keypad = (props) => {
       // TODO: Need to make an error message if not
     if (clickedNumber.length === 4) {
       API.createTicket({
-        "number": clickedNumber,
-        "date": new Date(),
-        "user_id": 5 // req.session.user_id // TODO: Once Auth is finished, user_id needs to be equal to logged in user
+        "number": clickedNumber
       })
       .catch(err => console.log(err));
       setClickedNumber('');
