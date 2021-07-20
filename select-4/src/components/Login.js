@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 // import Header3 from "../images/Header3.png";
 import axios from "axios";
-import './login.css';
+import "./login.css";
 
 const Login = () => {
-  const [username, setNewUsername] = useState('');
-  const [password, setNewPassword] = useState('');
+  const [username, setNewUsername] = useState("");
+  const [password, setNewPassword] = useState("");
 
-  const [usernameLogin, setLoginUsername] = useState('');
-  const [passwordLogin, setLoginPassword] = useState('');
+  const [usernameLogin, setLoginUsername] = useState("");
+  const [passwordLogin, setLoginPassword] = useState("");
 
   const Signup = async (e) => {
     e.preventDefault();
     if (username && password) {
       // Send a POST request to the API endpoint
-      const response = await axios.post("/api/user", { 
-        username, password
+      const response = await axios.post("/api/user", {
+        username,
+        password,
       });
       if (response.status == 200) {
         // If successful, redirect the browser to the Wallet page
-        document.location.replace('/#/wallet');
+        document.location.replace("/#/wallet");
       } else {
         alert(response.statusText); // TODO: Make this more user-friendly
       }
@@ -30,12 +31,14 @@ const Login = () => {
     e.preventDefault();
     if (username && password) {
       // Send a POST request to the API endpoint
-      const response = await axios.post("/api/user/login", { 
-        username, password
+      console.log(username, password);
+      const response = await axios.post("/api/user/login", {
+        username,
+        password,
       });
       if (response.status == 200) {
         // If successful, redirect the browser to the Wallet page
-        document.location.replace('/#/wallet');
+        document.location.replace("/#/wallet");
       } else {
         alert(response.statusText); // TODO: Make this more user-friendly
       }
@@ -46,7 +49,7 @@ const Login = () => {
     <div>
       <form className="form login-form">
         <div className="form-group col-md-3 mx-auto">
-        <h2 style={{ color: "white" }}>Login</h2>
+          <h2 style={{ color: "white" }}>Login</h2>
           <label style={{ color: "white" }}>username:</label>
           <input
             className="form-control"
@@ -54,7 +57,7 @@ const Login = () => {
             placeholder="Username"
             name="usernameLogin"
             onChange={(e) => {
-              setLoginUsername(e.target.value)
+              setLoginUsername(e.target.value);
             }}
           />
         </div>
@@ -69,11 +72,7 @@ const Login = () => {
           />
         </div>
         <div className="form-group col-md-3 mx-auto">
-          <button
-            className="btn btn-success"
-            onClick={Login}
-            type="submit"
-          >
+          <button className="btn btn-success" onClick={Login} type="submit">
             login
           </button>
         </div>

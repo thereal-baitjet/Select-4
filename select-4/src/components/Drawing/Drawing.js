@@ -1,37 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Style.css";
 import Header3 from "../../images/Header3.png";
+import API from "../../utils/API.js";
 // const schedule = require('node-schedule');
 
-let winningTicket = drawWinner();
-let displayTicket = winningTicket.split('');
-
-// Randomly draw the winning number
-function drawWinner() {
-    let winningString;
-    let winningNumber = Math.floor(Math.random() * 10000);
-
-    // Make sure any leading zeros show up in the winning number
-    if (winningNumber === 0) {
-        winningString = '0000';
-    } else if (winningNumber < 10) {
-        winningString = '000' + String(winningNumber);
-    } else if (winningNumber < 100) {
-        winningString = '00' + String(winningNumber);
-    } else if (winningNumber < 1000) {
-        winningString = '0' + String(winningNumber);
-    } else {
-        winningString = String(winningNumber);
-    }
-
-    return winningString;
-}
-
 // Brute force method - just refresh the page every 10 seconds
-setTimeout(
-  function() { window.location.reload() },
-  10000
-);
+// setTimeout(
+//   function() { window.location.reload() },
+//   10000
+// );
 
 // Node-schedule method - works but doesn't re-render the component
 // const test = schedule.scheduleJob('*/10 * * * * *', function() {
@@ -42,7 +19,63 @@ setTimeout(
 //     displayWinningTicket = winningTicket.split('');
 // });
 
-const Drawing = () => {
+const Drawing = (props) => {
+  console.log(props.numbersPicked);
+  const [numbers, setNumbers] = useState([]);
+  const [displayTicket, setDisplayTicket] = useState("");
+  // Randomly draw the winning number
+  function drawWinner() {
+    let winningString;
+    let winningNumber = Math.floor(Math.random() * 10000);
+
+    // Make sure any leading zeros show up in the winning number
+    if (winningNumber === 0) {
+      winningString = "0000";
+    } else if (winningNumber < 10) {
+      winningString = "000" + String(winningNumber);
+    } else if (winningNumber < 100) {
+      winningString = "00" + String(winningNumber);
+    } else if (winningNumber < 1000) {
+      winningString = "0" + String(winningNumber);
+    } else {
+      winningString = String(winningNumber);
+    }
+
+    return winningString;
+  }
+  useEffect(() => {
+    API.getTickets()
+
+      .then(async (res) => {
+        await setNumbers(res);
+        let winningTicket = drawWinner();
+        console.log(winningTicket);
+        await setDisplayTicket(winningTicket.split(""));
+        console.log(displayTicket);
+        winOrLose(res, winningTicket);
+      })
+      //.then(res => console.log(res.data[0].number))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(numbers);
+
+  const winOrLose = (numbers, winningTicket) => {
+    if (numbers) {
+      let winner = numbers.data.find((number) => {
+        return number.number === winningTicket;
+      });
+      console.log(winner);
+      // for (let index = 0; index < numbers.data.length; index++) {
+      //   const numPick = numbers.data[index].number;
+      //   console.log(numPick, winningTicket);
+      //   if (winningTicket === numPick) {
+      //     console.log("winner");
+      //   } else {
+      //     console.log("loser");
+      //   }
+      // }
+    }
+  };
 
   return (
     <div>
