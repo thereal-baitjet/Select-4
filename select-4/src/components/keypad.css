@@ -1,18 +1,23 @@
-.backGround{
-	background-image: url('./Keypadbackground.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 1450px 2500px;
-  }
+.backGround {
+  /* background-image: url("/Keypadbackground.jpg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1450px 2500px;
+}
 
-  .btn {
-        height: 100px;
-        width: 100px;
-        background: linear-gradient(#f00202 0%, #bd0404 10%, #7d0404 50%, #4a0202 100%);
-        border-radius: 50%;
-  }
+.btn {
+  height: 100px;
+  width: 100px;
+  background: linear-gradient(
+    #f00202 0%,
+    #bd0404 10%,
+    #7d0404 50%,
+    #4a0202 100%
+  );
+  border-radius: 50%;
+}
 
-  .clickedNumber {
-      color:white; 
-      size: large;
-  }
+.clickedNumber {
+  color: white;
+  size: large;
+}
