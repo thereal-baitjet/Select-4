@@ -4,7 +4,7 @@ const withAuth = require("../../utils/auth");
 
 // Route: POST /api/tickets/
 // Allows user to create a new ticket
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const ticketData = await Ticket.create({
       ...req.body,
