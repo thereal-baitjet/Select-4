@@ -2,6 +2,7 @@ import React from "react";
 import Swal from "sweetalert2";
 import { HashRouter as Route } from "react-router-dom";
 import axios from "axios";
+import "./winner.css"
 
 const Winner = () => {
   const displayModal = () => {
@@ -23,8 +24,8 @@ const Winner = () => {
   getUserStatus();
 
   return (
-    <div>
-      <h1
+    <div className="bGround">
+      <h1 
         style={{
           display: "flex",
           justifyContent: "Center",
@@ -34,13 +35,13 @@ const Winner = () => {
           color: "white",
         }}
       >
-        You Have Won
-      </h1>
+        You're a Winner! 
+      </h1> <br></br>
 
       <h2 style={{ color: "white" }}>
-        You Have a Winning Ticket, please go to your nearest participating,
-        Western Union to Cash Out!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! There are none
-        yet but hey!!!! you won
+        You have the winning ticket! Please go to your nearest participating,
+        Western Union to Cash Out!!!!!!!!!!</h2> <br></br>
+        <h2 style={{ color: "white" }}>There are none just yet but hey; you won! 
       </h2>
 
       {displayModal()}

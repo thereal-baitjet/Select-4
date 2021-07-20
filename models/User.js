@@ -2,16 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require("bcrypt")
 
-// Might use this for authentication
-// const bcrypt = require('bcrypt');
-
 class User extends Model {
-    // checkPassword(loginPw) {
-    //     return bcrypt.compareSync(loginPw, this.password);
-    // }
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
 }
-
-// Very basic User definition. May want to add some validations (unique email, length of password, etc)
 
 User.init(
     {
@@ -40,6 +35,12 @@ User.init(
             beforeUpdate: async (updatedUserData) => {
                 updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
                 return updatedUserData;
+            },
+            beforeBulkCreate: async (newUserArray) => {
+                for (const user of newUserArray) {
+                    user.password = await bcrypt.hash(user.password, 10);
+                }
+                return newUserArray;
             }
         },
         sequelize,

@@ -1,8 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Style.css";
 import Header3 from "../../images/Header3.png";
+import API from "../../utils/API.js";
+// const schedule = require('node-schedule');
 
-const Drawing = () => {
+let winningTicket = drawWinner();
+let displayTicket = winningTicket.split("");
+
+// Randomly draw the winning number
+function drawWinner() {
+  let winningString;
+  let winningNumber = Math.floor(Math.random() * 10000);
+
+  // Make sure any leading zeros show up in the winning number
+  if (winningNumber === 0) {
+    winningString = "0000";
+  } else if (winningNumber < 10) {
+    winningString = "000" + String(winningNumber);
+  } else if (winningNumber < 100) {
+    winningString = "00" + String(winningNumber);
+  } else if (winningNumber < 1000) {
+    winningString = "0" + String(winningNumber);
+  } else {
+    winningString = String(winningNumber);
+  }
+
+  return winningString;
+}
+
+// Brute force method - just refresh the page every 10 seconds
+// setTimeout(
+//   function() { window.location.reload() },
+//   10000
+// );
+
+// Node-schedule method - works but doesn't re-render the component
+// const test = schedule.scheduleJob('*/10 * * * * *', function() {
+//     // Draw winning number
+//     winningTicket = drawWinner();
+//     console.log(winningTicket);
+//     // Parse the winning number so the component animation can display it
+//     displayWinningTicket = winningTicket.split('');
+// });
+
+const Drawing = (props) => {
+  console.log(props.numbersPicked);
+  const [numbers, setNumbers] = useState([]);
+  useEffect(() => {
+    API.getTickets()
+
+      .then((res) => setNumbers(res))
+      //.then(res => console.log(res.data[0].number))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(numbers);
+  const winOrLose = () => {
+    for (let index = 0; index < numbers.length; index++) {
+      const numPick = numbers.data[index].number;
+      console.log(numPick);
+      if (displayTicket === numPick) {
+        console.log("winner");
+      } else {
+        console.log("loser");
+      }
+    }
+  };
+  winOrLose();
+
   return (
     <div>
       <img
@@ -11,33 +75,33 @@ const Drawing = () => {
         alt="Logo"
       />
       <h1 style={{ marginTop: "0px", color: "white" }}>
-        DRAWING, if your numbers match these you are the $1000.00 Winner
+        Here goes the DAILY DRAWING...
       </h1>
       <div className="wrap">
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number="8">
+            <span className="number" data-number={displayTicket[0]}>
               &nbsp;
             </span>
           </figure>
         </section>
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number="2">
+            <span className="number" data-number={displayTicket[1]}>
               &nbsp;
             </span>
           </figure>
         </section>
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number="4">
+            <span className="number" data-number={displayTicket[2]}>
               &nbsp;
             </span>
           </figure>
         </section>
         <section className="stage">
           <figure className="ball">
-            <span className="number" data-number="5">
+            <span className="number" data-number={displayTicket[3]}>
               &nbsp;
             </span>
           </figure>

@@ -1,0 +1,16 @@
+.bGround {
+    background-image: url('./winnerbackground.jpg');
+	background-repeat: no-repeat;
+    background-position:bottom;
+    /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1000px;
+	
+  /* Set up proportionate scaling */
+  
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}

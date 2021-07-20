@@ -26,19 +26,21 @@ const Keypad = (props) => {
     // use POST route to send the ticket to the database using logged in user and today's date
     // Only call API route if ticket is exactly 4 digits
     // TODO: Need to make an error message if not
+    console.log(clickedNumber);
     if (clickedNumber.length === 4) {
       API.createTicket({
         number: clickedNumber,
-        date: new Date(),
-        user_id: 5, // req.session.user_id // TODO: Once Auth is finished, user_id needs to be equal to logged in user
       }).catch((err) => console.log(err));
       setClickedNumber("");
     }
   };
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
 
   return (
     <div className="backGround">
-      <h1 style={{ color: "red", fontStyle: "revert" }}>
+      <h1 style={{ color: "dark gray", fontSize: "30px" }}>
         Choose your 4 numbers
       </h1>
       <div className="container py-4">
@@ -53,18 +55,34 @@ const Keypad = (props) => {
         >
           <div
             className="container py-4"
-            style={{ color: "white", fontSize: "100px" }}
+            style={{ color: "red", fontSize: "100px" }}
           >
             <h1>
               Input four numbers per line, max 3 lines per game for each
               drawing, refer to wallet page for your selected ticket
             </h1>
-
             {/* Here is where typed numbers appear and get sent to database */}
-            <form onSubmit={handleSubmit}>
-              <input disabled type="text" name="ticket" value={clickedNumber} />
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                height: "25px",
+              }}
+            >
+              <input
+                style={{
+                  backgroundColor: "#54626F",
+                  borderWidth: "5px",
+                  borderStyle: "double",
+                  borderColor: "red",
+                  width: "288px",
+                  textAlign: "center",
+                }}
+                type="text"
+                name="ticket"
+                onChange={handleChange}
+                value={clickedNumber}
+              />
             </form>
-
             <br></br>
             <div className="row">
               <div className="col-auto mx-auto bg-white rounded shadow">
