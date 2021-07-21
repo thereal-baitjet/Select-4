@@ -119,7 +119,7 @@ class Wallet extends Component {
                       {(context) => {
                         const ticketNumber = context.ticket3;
 
-                        return <p>A. {ticketNumber}</p>;
+                        return <p>C. {ticketNumber}</p>;
                       }}
                     </TicketContext.Consumer>
                   </ListGroupItem>

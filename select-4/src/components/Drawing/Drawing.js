@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Style.css";
 import Header3 from "../../images/Header3.png";
 import API from "../../utils/API.js";
+import Winner from "../Winner.js";
+import Sorry from "../Sorry.js";
 // const schedule = require('node-schedule');
 
 // Brute force method - just refresh the page every 10 seconds
@@ -24,6 +26,7 @@ const Drawing = (props) => {
   const [numbers, setNumbers] = useState([]);
   const [displayTicket, setDisplayTicket] = useState("");
   // Randomly draw the winning number
+  let isWinner = 0;
   function drawWinner() {
     let winningString;
     let winningNumber = Math.floor(Math.random() * 10000);
@@ -49,10 +52,10 @@ const Drawing = (props) => {
       .then(async (res) => {
         await setNumbers(res);
         let winningTicket = drawWinner();
-        console.log(winningTicket);
+        console.log(typeof winningTicket);
         await setDisplayTicket(winningTicket.split(""));
         console.log(displayTicket);
-        winOrLose(res, winningTicket);
+        winOrLose(res, "1111");
       })
       //.then(res => console.log(res.data[0].number))
       .catch((err) => console.log(err));
@@ -65,6 +68,13 @@ const Drawing = (props) => {
         return number.number === winningTicket;
       });
       console.log(winner);
+      if (winner) {
+        console.log("winner");
+        isWinner = 1;
+      } else {
+        console.log("loser");
+        isWinner = 2;
+      }
       // for (let index = 0; index < numbers.data.length; index++) {
       //   const numPick = numbers.data[index].number;
       //   console.log(numPick, winningTicket);
@@ -74,8 +84,18 @@ const Drawing = (props) => {
       //     console.log("loser");
       //   }
       // }
+    } else {
+      console.log("sorry");
     }
   };
+
+  const checkWin = if (isWinner === 1) {
+    return <Winner />;
+  } else if (isWinner === 2) {
+    return <Sorry />;
+  } else {
+    console.log("neither");
+  }
 
   return (
     <div>
@@ -116,6 +136,7 @@ const Drawing = (props) => {
             </span>
           </figure>
         </section>
+        {checkWin}
       </div>
     </div>
   );
