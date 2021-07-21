@@ -25,8 +25,9 @@ const Drawing = (props) => {
   console.log(props.numbersPicked);
   const [numbers, setNumbers] = useState([]);
   const [displayTicket, setDisplayTicket] = useState("");
+  const [didIWin, setDidIWin] = useState(false);
   // Randomly draw the winning number
-  let isWinner = 0;
+
   function drawWinner() {
     let winningString;
     let winningNumber = Math.floor(Math.random() * 10000);
@@ -55,14 +56,14 @@ const Drawing = (props) => {
         console.log(typeof winningTicket);
         await setDisplayTicket(winningTicket.split(""));
         console.log(displayTicket);
-        winOrLose(res, "1111");
+        winOrLose(res, winningTicket);
       })
       //.then(res => console.log(res.data[0].number))
       .catch((err) => console.log(err));
   }, []);
   console.log(numbers);
 
-  const winOrLose = (numbers, winningTicket) => {
+  const winOrLose = async (numbers, winningTicket) => {
     if (numbers) {
       let winner = numbers.data.find((number) => {
         return number.number === winningTicket;
@@ -70,10 +71,10 @@ const Drawing = (props) => {
       console.log(winner);
       if (winner) {
         console.log("winner");
-        isWinner = 1;
+        await setDidIWin(true);
       } else {
         console.log("loser");
-        isWinner = 2;
+        await setDidIWin(false);
       }
       // for (let index = 0; index < numbers.data.length; index++) {
       //   const numPick = numbers.data[index].number;
@@ -88,14 +89,15 @@ const Drawing = (props) => {
       console.log("sorry");
     }
   };
+  // let
 
-  const checkWin = if (isWinner === 1) {
-    return <Winner />;
-  } else if (isWinner === 2) {
-    return <Sorry />;
-  } else {
-    console.log("neither");
-  }
+  //    if (didIWin) {
+  //     return (<Winner />);
+  //   } else if (isWinner === 2) {
+  //     return (<Sorry />);
+  //   } else {
+  //     console.log("neither");
+  //   }
 
   return (
     <div>
@@ -136,7 +138,7 @@ const Drawing = (props) => {
             </span>
           </figure>
         </section>
-        {checkWin}
+        {didIWin ? <Winner /> : <Sorry />}
       </div>
     </div>
   );
