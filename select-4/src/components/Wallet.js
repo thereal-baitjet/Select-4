@@ -9,29 +9,24 @@ class Wallet extends Component {
     ticket1: "",
     ticket2: "",
     ticket3: "",
+    loggedInUser: ""
   };
 
   // Get user's tickets from database
   componentDidMount() {
-    API.getTickets()
-
-      .then((res) =>
-        this.setState({
-          ticket1: res.data[0].number,
-          ticket2: res.data[1].number,
-          ticket3: res.data[2].number,
-        })
-      )
-      //.then(res => console.log(res.data[0].number))
-      .catch((err) => console.log(err));
+    console.log('Before API call. On Wallet page as ', this.state.loggedInUser);
+    API.getSession()
+    .then((res) => this.setState({ loggedInUser: res.data.user_id }))
+    .then((res) => console.log('After API call. On Wallet page as ', this.state.loggedInUser))
+    .then((res) => API.getUserTickets(this.state.loggedInUser))
+    .then((res) =>
+      this.setState({
+        ticket1: res.data[0].number,
+        ticket2: res.data[1].number,
+        ticket3: res.data[2].number,
+      }))
+    .catch((err) => console.log(err));
   }
-
-  // TODO: How do I get userTickets down to the ListGroupItems?
-  // Option - prop drilling. Not sure how to work with the React-Bootstrap components
-  // Option - Context API
-  // Context
-  // Provider
-  // Consumer
 
   render() {
     return (

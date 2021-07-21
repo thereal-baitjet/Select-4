@@ -20,9 +20,19 @@ import API from "../../utils/API.js";
 // });
 
 const Drawing = (props) => {
-  console.log(props.numbersPicked);
+
   const [numbers, setNumbers] = useState([]);
   const [displayTicket, setDisplayTicket] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState('');
+
+  // Get user session
+  useEffect(() => {
+    API.getSession()
+    .then((res) => setLoggedInUser(res.data.user_id))
+    .then((res) => console.log('On Drawing page, logged in as user_id: ', loggedInUser))
+    .catch((err) => console.log(err));
+  });
+
   // Randomly draw the winning number
   function drawWinner() {
     let winningString;
@@ -43,37 +53,24 @@ const Drawing = (props) => {
 
     return winningString;
   }
-  useEffect(() => {
-    API.getTickets()
 
+  useEffect(() => {
+    API.getAllTickets()
       .then(async (res) => {
         await setNumbers(res);
         let winningTicket = drawWinner();
-        console.log(winningTicket);
         await setDisplayTicket(winningTicket.split(""));
-        console.log(displayTicket);
         winOrLose(res, winningTicket);
       })
       //.then(res => console.log(res.data[0].number))
       .catch((err) => console.log(err));
   }, []);
-  console.log(numbers);
 
   const winOrLose = (numbers, winningTicket) => {
     if (numbers) {
       let winner = numbers.data.find((number) => {
         return number.number === winningTicket;
       });
-      console.log(winner);
-      // for (let index = 0; index < numbers.data.length; index++) {
-      //   const numPick = numbers.data[index].number;
-      //   console.log(numPick, winningTicket);
-      //   if (winningTicket === numPick) {
-      //     console.log("winner");
-      //   } else {
-      //     console.log("loser");
-      //   }
-      // }
     }
   };
 
