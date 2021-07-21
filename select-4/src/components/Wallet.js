@@ -14,17 +14,19 @@ class Wallet extends Component {
 
   // Get user's tickets from database
   componentDidMount() {
-    console.log('Before API call. On Wallet page as ', this.state.loggedInUser);
     API.getSession()
     .then((res) => this.setState({ loggedInUser: res.data.user_id }))
-    .then((res) => console.log('After API call. On Wallet page as ', this.state.loggedInUser))
+    .then((res) => console.log('On Wallet page as ', this.state.loggedInUser))
     .then((res) => API.getUserTickets(this.state.loggedInUser))
-    .then((res) =>
-      this.setState({
-        ticket1: res.data[0].number,
-        ticket2: res.data[1].number,
-        ticket3: res.data[2].number,
-      }))
+    // .then((res) => console.log(res))
+    .then((res) => {
+      if (!res.data[0]) { this.setState({ ticket1: '' }) } 
+        else { this.setState({ ticket1: res.data[0].number }) }
+      if (!res.data[1]) { this.setState({ ticket2: '' }) } 
+        else { this.setState({ ticket2: res.data[1].number }) }
+      if (!res.data[2]) { this.setState({ ticket3: '' }) } 
+        else { this.setState({ ticket3: res.data[2].number }) }
+    })
     .catch((err) => console.log(err));
   }
 
@@ -114,7 +116,7 @@ class Wallet extends Component {
                       {(context) => {
                         const ticketNumber = context.ticket3;
 
-                        return <p>A. {ticketNumber}</p>;
+                        return <p>C. {ticketNumber}</p>;
                       }}
                     </TicketContext.Consumer>
                   </ListGroupItem>
