@@ -6,8 +6,8 @@
 }
 
 .btn {
-  height: 100px;
-  width: 100px;
+  height: auto;
+  width: auto;
   background: linear-gradient(
     #f00202 0%,
     #bd0404 10%,
