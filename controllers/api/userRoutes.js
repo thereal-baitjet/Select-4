@@ -6,13 +6,14 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
-      username: req.body.username,
-      password: req.body.password
+      username: req.body.NewUsername,
+      password: req.body.NewPassword
     });
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       res.status(200).json(userData);
+      console.log('----------------------------Session Object', req.session);
     });
   } catch (err) {
     res.status(400).json(err);
@@ -23,15 +24,14 @@ router.post('/', async (req, res) => {
 // Route: POST /api/user/login
 router.post('/login', async (req, res) => {
  try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { username: req.body.LoginUsername } });
     if (!userData) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-    const validPassword = await userData.checkPassword(req.body.password);
-    console.log('Valid Password', validPassword);
+    const validPassword = await userData.checkPassword(req.body.LoginPassword);
     if (!validPassword) {
       res
         .status(400)
@@ -42,17 +42,17 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       res.status(200).json(userData);
+      console.log('----------------------------Session Object', req.session);
     });
-    res.json({ user: userData, message: 'You are now logged in!' });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// Get user status (?)
+// Get user status
 // Route: GET /api/user/userStatus
 router.get("/userStatus",(req, res) => {
-  console.log(req.session.logged_in)
+  res.status(200).json(req.session);
 })
 
 // Logout user

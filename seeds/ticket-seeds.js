@@ -5,32 +5,32 @@ const { Ticket } = require('../models');
 const ticketData = [
   {
     number: '1234',
-    date: new Date(new Date().setDate(new Date().getDate() + 1)), // set the Date object for tomorrow's date
+    date: new Date().toDateString(),
     user_id: 1
   },
   {
     number: '3240',
-    date: new Date(new Date().setDate(new Date().getDate() + 1)), // set the Date object for tomorrow's date
+    date: 'Thu Jul 22 2021',
     user_id: 2
   },
   {
     number: '5081',
-    date: new Date(new Date().setDate(new Date().getDate() + 1)), // set the Date object for tomorrow's date
+    date: new Date().toDateString(),
     user_id: 3
   },
   {
     number: '0481',
-    date: new Date(new Date().setDate(new Date().getDate() + 1)), // set the Date object for tomorrow's date
+    date: 'Thu Jul 22 2021',
     user_id: 4
   },
   {
     number: '5680',
-    date: new Date(new Date().setDate(new Date().getDate() + 1)), // set the Date object for tomorrow's date
+    date: 'Fri Jul 23 2021',
     user_id: 5
   },
   {
     number: '2711',
-    date: new Date(new Date().setDate(new Date().getDate() + 1)), // set the Date object for tomorrow's date
+    date: new Date().toDateString(),
     user_id: 6
   }
 ];
