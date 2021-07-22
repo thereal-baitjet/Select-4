@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import "./keypad.css";
 
 const Keypad = (props) => {
   const [clickedNumber, setClickedNumber] = useState("");
+  const [loggedInUser, setLoggedInUser] = useState('');
+
+  // Get user session
+  useEffect(() => {
+    console.log('In useEffect. Logged in as: ', loggedInUser);
+    API.getSession()
+    .then((res) => setLoggedInUser(res.data.user_id))
+    .catch((err) => console.log(err));
+  });
 
   const clickButton = (event) => {
     // console.log(event.target.textContent);
@@ -26,10 +35,13 @@ const Keypad = (props) => {
     // use POST route to send the ticket to the database using logged in user and today's date
     // Only call API route if ticket is exactly 4 digits
     // TODO: Need to make an error message if not
-    console.log(clickedNumber);
+    console.log('Ticket bought: ', clickedNumber);
     if (clickedNumber.length === 4) {
+      console.log('Calling the POST route!');
       API.createTicket({
         number: clickedNumber,
+        date: new Date().toDateString(),
+        user_id: loggedInUser
       }).catch((err) => console.log(err));
       setClickedNumber("");
     }
@@ -47,7 +59,7 @@ const Keypad = (props) => {
         <div
           className="body"
           style={{
-            backgroundImage: 'url("Keypadbackground.jpg")',
+            // backgroundImage: 'url("Keypadbackground.jpg")', // Took this out for debugging -kv
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundSize: "1500px 1500px",

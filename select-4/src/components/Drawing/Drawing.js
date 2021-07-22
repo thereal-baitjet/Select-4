@@ -22,12 +22,21 @@ import Sorry from "../Sorry.js";
 // });
 
 const Drawing = (props) => {
-  console.log(props.numbersPicked);
+
   const [numbers, setNumbers] = useState([]);
   const [displayTicket, setDisplayTicket] = useState("");
   const [didIWin, setDidIWin] = useState(false);
-  // Randomly draw the winning number
+  const [loggedInUser, setLoggedInUser] = useState('');
 
+  // Get user session
+  useEffect(() => {
+    API.getSession()
+    .then((res) => setLoggedInUser(res.data.user_id))
+    .then((res) => console.log('On Drawing page, logged in as user_id: ', loggedInUser))
+    .catch((err) => console.log(err));
+  });
+
+  // Randomly draw the winning number
   function drawWinner() {
     let winningString;
     let winningNumber = Math.floor(Math.random() * 10000);
@@ -47,27 +56,26 @@ const Drawing = (props) => {
 
     return winningString;
   }
-  useEffect(() => {
-    API.getTickets()
 
+  useEffect(() => {
+    API.getAllTickets()
       .then(async (res) => {
         await setNumbers(res);
         let winningTicket = drawWinner();
         console.log(typeof winningTicket);
         await setDisplayTicket(winningTicket.split(""));
-        console.log(displayTicket);
         winOrLose(res, winningTicket);
       })
       //.then(res => console.log(res.data[0].number))
       .catch((err) => console.log(err));
   }, []);
-  console.log(numbers);
 
   const winOrLose = async (numbers, winningTicket) => {
     if (numbers) {
       let winner = numbers.data.find((number) => {
         return number.number === winningTicket;
       });
+
       console.log(winner);
       if (winner) {
         console.log("winner");
