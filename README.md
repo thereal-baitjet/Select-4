@@ -12,7 +12,7 @@
 * This app is the backend portion of an E-Commerce website. Express.js was used for the server and MySQL for the database along with Sequelize as the ORM to run SQL models and queries. The SQL database includes tables for products, categories, tags, and product tags. 
 <br> <br>Video Walkthrough: https://drive.google.com/file/d/1f7gOIHz0d6twYRBjeFfHOmTjXxPAEqZY/view
 <br> <br>Git REPO: https://github.com/thereal-baitjet/Select-4.git
-<br> <br>Heroku: 
+<br> <br>Heroku: https://fierce-citadel-83857.herokuapp.com/
 <br><br> Presentation: https://docs.google.com/presentation/d/1db1Udj3HPsdipHbB4I9YaVc6h7HMb2s51nG1DuJSslc/edit?usp=sharing 
 <br><br> User Authentication 
 <br><br>![Select 4 (1)](https://user-images.githubusercontent.com/77952267/126704021-fdc1ad2f-4a05-490f-8eae-3d924ae7b554.gif)
