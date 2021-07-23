@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Select-4/static/css/main.9782c599.chunk.css",
+    "main.js": "/Select-4/static/js/main.03d1a200.chunk.js",
+    "main.js.map": "/Select-4/static/js/main.03d1a200.chunk.js.map",
+    "runtime-main.js": "/Select-4/static/js/runtime-main.f241b286.js",
+    "runtime-main.js.map": "/Select-4/static/js/runtime-main.f241b286.js.map",
+    "static/css/2.4be38407.chunk.css": "/Select-4/static/css/2.4be38407.chunk.css",
+    "static/js/2.7767ed02.chunk.js": "/Select-4/static/js/2.7767ed02.chunk.js",
+    "static/js/2.7767ed02.chunk.js.map": "/Select-4/static/js/2.7767ed02.chunk.js.map",
+    "index.html": "/Select-4/index.html",
+    "static/css/2.4be38407.chunk.css.map": "/Select-4/static/css/2.4be38407.chunk.css.map",
+    "static/css/main.9782c599.chunk.css.map": "/Select-4/static/css/main.9782c599.chunk.css.map",
+    "static/js/2.7767ed02.chunk.js.LICENSE.txt": "/Select-4/static/js/2.7767ed02.chunk.js.LICENSE.txt",
+    "static/media/Header3.1cdea77c.png": "/Select-4/static/media/Header3.1cdea77c.png",
+    "static/media/keypad.css": "/Select-4/static/media/Keypadbackground.35aa08af.jpg",
+    "static/media/wallet.css": "/Select-4/static/media/Walletbackground.ebbccc03.jpg",
+    "static/media/winner.css": "/Select-4/static/media/winnerbackground.a7edfe7f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f241b286.js",
+    "static/css/2.4be38407.chunk.css",
+    "static/js/2.7767ed02.chunk.js",
+    "static/css/main.9782c599.chunk.css",
+    "static/js/main.03d1a200.chunk.js"
+  ]
+}
