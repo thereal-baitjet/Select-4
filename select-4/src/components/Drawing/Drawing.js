@@ -64,7 +64,7 @@ const Drawing = (props) => {
         let winningTicket = drawWinner();
         console.log(typeof winningTicket);
         await setDisplayTicket(winningTicket.split(""));
-        winOrLose(res, winningTicket);
+        // winOrLose(res, winningTicket);
       })
       //.then(res => console.log(res.data[0].number))
       .catch((err) => console.log(err));
